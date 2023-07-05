@@ -1,5 +1,7 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,6 +12,13 @@ export default function Home() {
       </Head>
 
       <main>
+        <h1 className={styles.title}>
+          Read this Post <br />
+          <Link href="/posts/first-post" style={{ color: "pink" }}>
+            첫번째 페이지로 가라!
+          </Link>
+        </h1>
+
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -49,13 +58,33 @@ export default function Home() {
         </div>
       </main>
 
+      {/* pre-fetching 가능 */}
+      <Link href="/posts/second-post" style={{ color: "pink" }}>
+        두번째 페이지로 가라!
+      </Link>
+
+      <h2>-- lazy loading --</h2>
+      <Image
+        src="/../public/images/my_photo.jpeg"
+        height={250}
+        width={170}
+        loading="lazy"
+        alt="some my_photo"
+      />
+      <h2>-- not lazy loading --</h2>
+      <img
+        src="/../public/images/my_photo.jpeg"
+        height={250}
+        width={170}
+        alt="hi"
+      />
       <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
         </a>
       </footer>
@@ -111,5 +140,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
