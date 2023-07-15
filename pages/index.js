@@ -15,27 +15,7 @@ export async function getStaticProps() {
   };
 }
 
-// SSR
-//
-// export async function getServerSideProps() {
-//   const allPostsData = getSortedPostsData();
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// }
-
 export default function Home({ allPostsData }) {
-  // CSR
-  //
-  // const [allPostsData, setAllPostsData] = useState([]);
-  // useEffect(() => {
-  //   fetch("/api/posts")
-  //     .then((res) => res.json())
-  //     .then((data) => setAllPostsData(data.allPostsData()));
-  // }, []);
-
   return (
     <Layout home>
       {/* Keep the existing code here */}
